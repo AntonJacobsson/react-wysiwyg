@@ -9,7 +9,7 @@ import {
     useParams,
     useRouteMatch
   } from "react-router-dom";
-const strapi = new Strapi('http://localhost:1337');
+const strapi = new Strapi('http://127.0.0.1:1337');
 
   
 class Articles extends React.Component {

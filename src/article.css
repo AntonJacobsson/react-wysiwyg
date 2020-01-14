@@ -1,7 +1,28 @@
 
 pre code {
-  background-color: #eee;
-  border: 1px solid #999;
+  background-color: #000;
+  border: 1px solid #333;
   display: block;
   padding: 20px;
+  color: white;  
+}
+
+
+img {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.article-wrapper {
+  padding-top: 30px;
+}
+.article-title {
+  font-size: 3.5rem;
+}
+.article-header {
+  margin-left: 5%;
+  margin-right: 5%;
 }

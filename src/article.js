@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
-import { Markdown } from 'react-showdown';
+import { Markdown, Showdown } from 'react-showdown';
 import './article.css';
-const strapi = new Strapi('http://localhost:1337');
+const strapi = new Strapi('http://127.0.0.1:1337');
 class Article extends React.Component {
 
   constructor(props) {
@@ -20,7 +20,6 @@ async componentDidMount() {
     postList.push(posts);
    console.log(posts);
 
-
   this.setState({
     articles: postList
   })
@@ -30,15 +29,33 @@ async componentDidMount() {
  }
 }
 
+
+/* <div class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+      </div>
+    </div> */
+
+
 render() {
 
   return (
     <section>
       {this.state.articles.map(i => {
             return(
-              <div>
-                <h1>{i.title}</h1>
+              <div className="article-wrapper">
+      <div className="article-header">
+        <h1 className="article-title">{i.title}</h1>
+        <p className="lead blog-description">2020-01-01 10AM</p>
+      </div>
+
+
+                <div className="container">
+                <div className="row">
                 <Markdown markup={ i.content } />
+                </div>
+                </div>
               </div>
             )
           })}
