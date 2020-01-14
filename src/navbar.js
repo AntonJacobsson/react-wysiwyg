@@ -12,10 +12,7 @@ render() {
   return (
     <header>
     <nav className="navbar navbar-dark bg-dark">
-     <a className="navbar-brand" href="#">
-    
-      Anton Jacobsson
-    </a>
+    <Link to="/articles">Anton Jacobsson</Link>
     <ul className="nav">
     <li className="nav-item">
     <Link to="/articles">Articles</Link>

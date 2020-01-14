@@ -3,7 +3,7 @@ import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import { Markdown, Showdown } from 'react-showdown';
 import './article.css';
-const strapi = new Strapi('http://127.0.0.1:1337');
+const strapi = new Strapi('http://104.41.228.118:1337');
 class Article extends React.Component {
 
   constructor(props) {
@@ -13,7 +13,6 @@ class Article extends React.Component {
     }
  }
 async componentDidMount() {
-
  try {
    const posts = await strapi.getEntry('articles', this.props.match.params.number);
     let postList = [];

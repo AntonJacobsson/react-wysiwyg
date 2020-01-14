@@ -15,11 +15,6 @@ class ArticlesRouter extends React.Component {
     this.state = {
     }
  }
- componentDidUpdate() {
-   console.log("hej");
- }
- 
- 
 
 
 render() {
@@ -27,7 +22,7 @@ render() {
   return (
     <Switch>
       <Route exact path='/articles' component={Articles}/>
-      <Route path='/articles/:number' component={Article}/>
+      <Route path='/articles/:number/:string' component={Article}/>
     </Switch>
     
    )

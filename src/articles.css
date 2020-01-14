@@ -1,0 +1,13 @@
+.articles-title {
+    font-size: 2.5rem;
+    color: black;
+}
+.card-body a:hover {
+    text-decoration: none;
+}
+.row {
+    margin-bottom: 30px;
+}
+.container {
+    margin-top: 30px;
+}
