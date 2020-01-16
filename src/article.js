@@ -17,8 +17,7 @@ async componentDidMount() {
    const posts = await strapi.getEntry('articles', this.props.match.params.number);
     let postList = [];
     postList.push(posts);
-   console.log(posts);
-
+  console.log(posts);
   this.setState({
     articles: postList
   })
@@ -46,7 +45,15 @@ render() {
               <div className="article-wrapper">
       <div className="article-header">
         <h1 className="article-title">{i.title}</h1>
-        <p className="lead blog-description">2020-01-01 10AM</p>
+        <div className="article-info">
+        
+        <span className="span">A</span>
+        <p className="lead blog-description"> {i.created_at} </p>
+
+
+       
+        </div>
+        <p className="lead blog-description"> {i.user.username} </p> 
       </div>
 
 
