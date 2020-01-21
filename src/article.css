@@ -57,3 +57,7 @@ img {
   border-radius: 50%;
   margin-right: 15px;
 }
+
+.article-info p:first-of-type{
+  margin-right: 1em;
+}

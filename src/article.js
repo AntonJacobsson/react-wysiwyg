@@ -9,17 +9,32 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: []
+      articles: [],
+      createdDate: "",
     }
  }
 async componentDidMount() {
  try {
-   const posts = await strapi.getEntry('articles', this.props.match.params.number);
-    let postList = [];
-    postList.push(posts);
-  console.log(posts);
+   const article = await strapi.getEntry('articles', this.props.match.params.number);
+    let articles = [];
+    articles.push(article);
+
+    var createdIsoTime = articles[0].created_at;
+    var arr = createdIsoTime.substring(0,10).split("-");
+
+    var months = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+
+    var monthNumber = Number(
+      arr[1]);
+    
+    var month = months[monthNumber - 1];
+
+    var createdDateString = month + ". " +  arr[2] + ", " +  arr[0]
+
   this.setState({
-    articles: postList
+    articles: articles,
+    createdDate: createdDateString
   })
  } 
  catch(err) {
@@ -48,14 +63,10 @@ render() {
         <div className="article-info">
         
         <span className="span">A</span>
-        <p className="lead blog-description"> {i.created_at} </p>
-
-
-       
+        <p className="lead"> By {i.user.username} </p> 
+        <p className="lead"> {this.state.createdDate} </p>
         </div>
-        <p className="lead blog-description"> {i.user.username} </p> 
       </div>
-
 
                 <div className="container">
                 <div className="row">
