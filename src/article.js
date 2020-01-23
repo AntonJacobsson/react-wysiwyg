@@ -9,77 +9,77 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: [],
+      article: null,
       createdDate: "",
+      authorFirstLetter: "",
     }
- }
-async componentDidMount() {
- try {
-   const article = await strapi.getEntry('articles', this.props.match.params.number);
-    let articles = [];
-    articles.push(article);
+  }
+  async componentDidMount() {
 
-    var createdIsoTime = articles[0].created_at;
-    var arr = createdIsoTime.substring(0,10).split("-");
+      var article = await this.fetchPost();
 
-    var months = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
+      var createdIsoTime = article.created_at;
+      var arr = createdIsoTime.substring(0, 10).split("-");
 
-    var monthNumber = Number(
-      arr[1]);
-    
-    var month = months[monthNumber - 1];
+      var months = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
 
-    var createdDateString = month + ". " +  arr[2] + ", " +  arr[0]
+      var monthNumber = Number(
+         arr[1]);
 
-  this.setState({
-    articles: articles,
-    createdDate: createdDateString
-  })
- } 
- catch(err) {
-  alert(err);
- }
-}
+       var month = months[monthNumber - 1];
 
+       var createdDateString = month + ". " + arr[2] + ", " + arr[0];
 
-/* <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
-      </div>
-    </div> */
+      var firstLetterInName = article.user.username.substring(0, 1);
 
+      this.setState({
+        article: article,
+        createdDate: createdDateString,
+        authorFirstLetter: firstLetterInName
+      });
+  }
 
-render() {
+  componentDidUpdate() {
+    this.updateCodeSyntaxHighlighting();
+  }
+  updateCodeSyntaxHighlighting = () => {
+    document.querySelectorAll("pre code").forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  };
 
-  return (
-    <section>
-      {this.state.articles.map(i => {
-            return(
+  async fetchPost() {
+    return await strapi.getEntry('articles', this.props.match.params.number);
+  }
+
+  render() {
+
+    if(this.state.article) {
+      return (
+        <section>
               <div className="article-wrapper">
-      <div className="article-header">
-        <h1 className="article-title">{i.title}</h1>
-        <div className="article-info">
-        
-        <span className="span">A</span>
-        <p className="lead"> By {i.user.username} </p> 
-        <p className="lead"> {this.state.createdDate} </p>
-        </div>
-      </div>
-
-                <div className="container">
-                <div className="row">
-                <Markdown markup={ i.content } />
+                <div className="article-header">
+                  <h1 className="article-title">{this.state.article.title}</h1>
+                  <div className="article-info">
+  
+                    <span className="span">{this.state.authorFirstLetter}</span>
+                    <p className="lead"> By {this.state.article.user.username} </p>
+                    <p className="lead"> {this.state.createdDate} </p>
+                  </div>
                 </div>
+  
+                <div className="container">
+                  <div className="row">
+                    <Markdown markup={this.state.article.content} />
+                  </div>
                 </div>
               </div>
-            )
-          })}
-
-     
-    </section>
-   )
- }
+        </section>
+      )
+    } else {
+      return <div></div>;
+    }
+  }
 }
 export default Article;
