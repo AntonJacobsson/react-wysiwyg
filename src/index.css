@@ -15,3 +15,28 @@ code {
 p {
   line-height: 1.7;
 }
+
+.custom-navbar-primary{
+  background-color: #33b5e5;
+  font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+}
+.custom-navbar-brand {
+  display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white;
+    
+}
+.custom-navbar-primary ul li a {
+  color: white;
+}
+.nav-item:hover .nav-link {
+  color: #eee;
+}
+
+

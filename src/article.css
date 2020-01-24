@@ -49,8 +49,8 @@ img {
   display: block;
   height: 35px;
   width: 35px;
-  line-height: 35px;
-  background-color: black;
+  line-height: 33px;
+  background-color: #33b5e5;
   color: white;
   text-align: center;
   font-size: 1.4em;
