@@ -51,16 +51,34 @@ render() {
                        <p className="lead">Here you can find articles about software development</p>
                     </div>
                 </div>
+
       <div className="container">
       {this.state.articles.map(i => {
-          
             return(
               <div className="row">
-                <div >
+                <div>
                 <div className="card-body">
+                  
                   <Link to={`/articles/${i.id}/${i.link}`}><h5 className="articles-title">{i.title}</h5></Link>
+                  
+                  <div className="article-middle">
+                    <span className="articles-span">{i.user.username.substring(0,1)}</span>
+                    <div>
+                    <span>Author</span>
+                    <span>{i.user.username}</span>
+                    </div>
+                    <div>
+                    <span>Published</span>
+                    <span>{i.created_at.substring(0, 10)}</span>
+                      </div>
+                 </div>
+                  
                   <p className="card-text">{i.description}</p>
-                  <p className="card-text"><small className="text-muted">{this.formatDate(i.created_at)}</small></p>
+                  <div class="articles-badge-row">
+                  <span class="badge badge-pill badge-secondary articles-badge">Secondary</span>
+                  <span class="badge badge-pill badge-secondary articles-badge">Secondary</span>
+                    <Link to={`/articles/${i.id}/${i.link}`}><span>Continue reading..</span></Link>
+                  </div>
                 </div>
               </div>
               </div>

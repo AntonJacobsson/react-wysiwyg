@@ -65,7 +65,7 @@ class Article extends React.Component {
                 <h1 className="article-title">{this.state.article.title}</h1>
                 <div className="article-info">
                     <span className="span">{this.state.authorFirstLetter}</span>
-                    <p className="lead"> By {this.state.article.user.username} </p>
+                    <p className="lead"> {this.state.article.user.username} </p>
                     <p className="lead"> {this.state.createdDate} </p>
                   </div>
                   <div className="row">

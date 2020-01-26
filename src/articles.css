@@ -16,3 +16,36 @@
     margin: 0 auto;
     margin-bottom: 2rem;
 }
+.article-middle {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.article-middle > div {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+}
+.articles-span {
+    display: block;
+    height: 48px;
+    width: 48px;
+    line-height: 43px;
+    background-color: #33b5e5;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  .articles-badge {
+    padding: 0.5rem;
+    margin-right: 0.25rem;
+  }
+  .articles-badge-row {
+      display: flex;
+  }
+  .articles-badge-row a {
+      margin-left: auto;
+      color: grey;
+  }

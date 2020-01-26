@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  NavLink
 } from "react-router-dom";
 import React from 'react';
 class Navbar extends React.Component {
@@ -12,16 +13,18 @@ class Navbar extends React.Component {
     return (
       <header>
         <nav className="navbar navbar-expand-sm custom-navbar-primary">
+        <div class="container">
           <Link className={"custom-navbar-brand"} to="/">Anton Jacobsson</Link>
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+          <ul className="navbar-nav">
 
             <li className="nav-item">
-              <Link className={"nav-link"} to="/articles">Articles</Link>
+              <NavLink className={"nav-link"} activeClassName="is-active" to="/articles">Articles</NavLink>
             </li>
             <li className="nav-item">
-              <Link className={"nav-link"} to="/github">Github</Link>
+              <NavLink className={"nav-link"} activeClassName="is-active" to="/github">Github</NavLink>
             </li>
           </ul>
+          </div>
         </nav>
       </header>
     )

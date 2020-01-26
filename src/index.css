@@ -16,11 +16,18 @@ p {
   line-height: 1.7;
 }
 
+
+
+
 .custom-navbar-primary{
   background-color: #33b5e5;
   font-family: 'Roboto Condensed', sans-serif;
   display: flex;
 }
+.custom-navbar-primary > .container {
+  margin-top:0px;
+}
+
 .custom-navbar-brand {
   display: inline-block;
     padding-top: .3125rem;
@@ -30,13 +37,16 @@ p {
     line-height: inherit;
     white-space: nowrap;
     color: white;
-    
 }
 .custom-navbar-primary ul li a {
   color: white;
+  font-size: 1.25rem;
 }
 .nav-item:hover .nav-link {
   color: #eee;
 }
 
-
+.is-active {
+  border-bottom: 2px solid white;
+  padding-bottom: 6px;
+}
