@@ -7,6 +7,7 @@ import {
 import Navbar from "./navbar";
 import Articles from "./articles";
 import Article from "./article";
+import Github from './github';
 
 export default function App() {
   return (
@@ -15,15 +16,12 @@ export default function App() {
         <Navbar/>
 
         <Switch>
+        <Route exact path='/' component={Articles}/>
         <Route exact path='/articles' component={Articles}/>
         <Route path='/articles/:number' component={Article}/>
-        <Route path="/about" component={Users}/>
+        <Route path="/github" component={Github}/>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }

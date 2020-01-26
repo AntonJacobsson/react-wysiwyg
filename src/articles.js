@@ -45,12 +45,18 @@ render() {
 
   return (
     <section>
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="container">
+                      <h1 className="display-4">Articles</h1>
+                       <p className="lead">Here you can find articles about software development</p>
+                    </div>
+                </div>
       <div className="container">
       {this.state.articles.map(i => {
           
             return(
               <div className="row">
-                <div className="card">
+                <div >
                 <div className="card-body">
                   <Link to={`/articles/${i.id}/${i.link}`}><h5 className="articles-title">{i.title}</h5></Link>
                   <p className="card-text">{i.description}</p>

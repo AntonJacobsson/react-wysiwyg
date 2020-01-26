@@ -4,6 +4,7 @@ import Strapi from 'strapi-sdk-javascript/build/main';
 import { Markdown, Showdown } from 'react-showdown';
 import './article.css';
 const strapi = new Strapi('http://104.41.228.118:1337');
+
 class Article extends React.Component {
 
   constructor(props) {
@@ -59,17 +60,14 @@ class Article extends React.Component {
       return (
         <section>
               <div className="article-wrapper">
-                <div className="article-header">
-                  <h1 className="article-title">{this.state.article.title}</h1>
-                  <div className="article-info">
   
+                <div className="container">
+                <h1 className="article-title">{this.state.article.title}</h1>
+                <div className="article-info">
                     <span className="span">{this.state.authorFirstLetter}</span>
                     <p className="lead"> By {this.state.article.user.username} </p>
                     <p className="lead"> {this.state.createdDate} </p>
                   </div>
-                </div>
-  
-                <div className="container">
                   <div className="row">
                     <Markdown markup={this.state.article.content} />
                   </div>
