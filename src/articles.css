@@ -38,10 +38,6 @@
     border-radius: 50%;
     margin-right: 15px;
   }
-  .articles-badge {
-    padding: 0.5rem;
-    margin-right: 0.25rem;
-  }
   .articles-badge-row {
       display: flex;
   }
@@ -49,3 +45,8 @@
       margin-left: auto;
       color: grey;
   }
+.custom-button-badge {
+    border-radius: 10rem;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+}

@@ -18,12 +18,24 @@ class Articles extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: []
+      articles: [],
+      filters: []
     }
  }
 
  formatDate = (time) =>  {
   return time.substring(0, 10);;
+ }
+
+ addFilterOnClick = (tagName) => {
+
+   var tags = this.state.filters;
+   tags.push(tagName);
+
+   this.setState({
+    filters: tags
+   });
+   console.log(tags);
  }
  
 async componentDidMount() {
@@ -31,7 +43,7 @@ async componentDidMount() {
    const posts = await strapi.getEntries('articles')
   console.log(posts);
   this.setState({
-    articles: posts
+    articles: posts,
   })
  } 
  catch(err) {
@@ -53,7 +65,16 @@ render() {
                 </div>
 
       <div className="container">
+
+      {/* <span>active filters: </span>
+          {this.state.filters.map(i => {
+            return(
+              <span>{i}</span>
+            )
+      })} */}
+
       {this.state.articles.map(i => {
+        if(this.state.filters.length == 0 || i.tags.some(r=> this.state.filters.includes(r.name)) == true) {
             return(
               <div className="row">
                 <div>
@@ -75,14 +96,20 @@ render() {
                   
                   <p className="card-text">{i.description}</p>
                   <div class="articles-badge-row">
-                  <span class="badge badge-pill badge-secondary articles-badge">Secondary</span>
-                  <span class="badge badge-pill badge-secondary articles-badge">Secondary</span>
+                    {i.tags.map(tag => {
+                      return (
+                        <button type="button" class="btn btn-outline-secondary custom-button-badge" onClick={() => this.addFilterOnClick(tag.name)} >{tag.name}</button>
+                      )
+                    })}
                     <Link to={`/articles/${i.id}/${i.link}`}><span>Continue reading..</span></Link>
                   </div>
                 </div>
               </div>
               </div>
             )
+                  } else {
+                    return;
+                  }
           })}
           </div>
     </section>
