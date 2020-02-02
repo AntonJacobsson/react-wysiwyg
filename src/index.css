@@ -38,6 +38,12 @@ p {
     white-space: nowrap;
     color: white;
 }
+
+.custom-navbar-brand:hover {
+  color: #eee;
+  text-decoration: none;
+}
+
 .custom-navbar-primary ul li a {
   color: white;
   font-size: 1.25rem;

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
-import { Markdown, Showdown } from 'react-showdown';
+import { Markdown } from 'react-showdown';
 import './article.css';
 const strapi = new Strapi('http://104.41.228.118:1337');
 
@@ -44,6 +44,7 @@ class Article extends React.Component {
   componentDidUpdate() {
     this.updateCodeSyntaxHighlighting();
   }
+  
   updateCodeSyntaxHighlighting = () => {
     document.querySelectorAll("pre code").forEach(block => {
       hljs.highlightBlock(block);

@@ -42,7 +42,7 @@ class Github extends React.Component {
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container">
                       <h1 className="display-4">Github Repositories</h1>
-                       <p className="lead">Check below for all my public repos. Feel free to clone them and trying it out.</p>
+                       <p className="lead">Here you can find my public repos. Feel free to check them out</p>
                     </div>
                 </div>
 
@@ -54,14 +54,14 @@ class Github extends React.Component {
             var description = "";
 
             if(i.description) { 
-                var description = i.description;   
+                description = i.description;   
             } else {
                description = "No description found for this repository"
             }
 
             return(
 
-            <div className="card">
+            <div className="card" key={i.id}>
                 <div className="card-body">
                     <h5 className="card-title">{i.name}</h5>
                     <p className="card-text">{description}</p>
@@ -71,7 +71,7 @@ class Github extends React.Component {
                 </div>
                 <div className="card-footer">
                     <a href={i.html_url} >
-                        <button type="button" class="btn btn-outline-secondary">To Github</button>
+                        <button type="button" className="btn btn-outline-secondary">To Github</button>
                     </a>
                 </div>
             </div>
