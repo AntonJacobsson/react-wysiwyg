@@ -3,7 +3,7 @@ import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import { Markdown } from 'react-showdown';
 import './article.css';
-const strapi = new Strapi('http://104.41.228.118:1337');
+const strapi = new Strapi('https://api.ajacobsson.com');
 
 class Article extends React.Component {
 

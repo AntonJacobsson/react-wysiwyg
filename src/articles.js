@@ -3,7 +3,7 @@ import Strapi from 'strapi-sdk-javascript/build/main';
 import './articles.css';
 import { Link } from "react-router-dom";
 
-const strapi = new Strapi('http://104.41.228.118:1337');
+const strapi = new Strapi('https://api.ajacobsson.com');
 
 class Articles extends React.Component {
 
