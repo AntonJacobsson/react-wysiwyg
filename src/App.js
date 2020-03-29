@@ -4,10 +4,15 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import ReactGA from 'react-ga';
 import Navbar from "./navbar";
 import Articles from "./articles";
 import Article from "./article";
 import Github from './github';
+
+
+ReactGA.initialize('UA-162036742-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default function App() {
   return (

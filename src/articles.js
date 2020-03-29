@@ -106,9 +106,9 @@ class Articles extends React.Component {
 
                         <p className="card-text">{i.description}</p>
                         <div className="articles-badge-row">
-                          {i.tags.map(tag => {
+                          {i.tags.map((tag, index) => {
                             return (
-                              <button key={tag} type="button" className="btn btn-outline-secondary custom-button-badge" onClick={() => this.addFilterOnClick(tag.name)} >{tag.name}</button>
+                              <button key={index} type="button" className="btn btn-outline-secondary custom-button-badge" onClick={() => this.addFilterOnClick(tag.name)} >{tag.name}</button>
                             )
                           })}
                           <Link to={`/articles/${i.id}/${i.link}`}><span>Continue reading..</span></Link>
