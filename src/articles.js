@@ -73,7 +73,7 @@ class Articles extends React.Component {
 
           <div className="container">
 
-            <div className="row">
+            <div className="row" style={{marginBottom: '0px'}}>
               <div className="card-body fixed-height-card">
                 {this.state.filters.map(tag => {
                   return (
