@@ -38,7 +38,7 @@ class Github extends React.Component {
                     <meta name="description" content="Here you can find my public repos. Feel free to check them out" />
                 </Helmet>
 
-                <div>
+                <section>
                     <div className="jumbotron jumbotron-fluid">
                         <div className="container">
                             <h1 className="display-4">Github Repositories</h1>
@@ -78,7 +78,7 @@ class Github extends React.Component {
                             })}
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         )
     }

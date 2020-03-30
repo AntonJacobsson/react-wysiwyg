@@ -1,0 +1,33 @@
+footer {
+    background: #212529;
+}
+.footer-icons {
+    height: 3.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa {
+    color: white;
+}
+
+.footer-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-2 {
+    width: 2em;
+    height: 2em;
+}
+
+.fa-3 {
+    width: 3em;
+    height: 3em;
+}
+
+.footer-icons svg:hover {
+    transform: scale(1.2);
+}

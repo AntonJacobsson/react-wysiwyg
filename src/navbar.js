@@ -7,7 +7,7 @@ class Navbar extends React.Component {
       <header>
         <nav className="navbar navbar-expand-sm custom-navbar-primary">
           <div className="container">
-            <NavLink className={"custom-navbar-brand"} to="/">Anton Jacobsson</NavLink>
+            <NavLink className={"custom-navbar-brand"} to="/">AJacobsson</NavLink>
             <ul className="navbar-nav">
 
               <li className="nav-item">

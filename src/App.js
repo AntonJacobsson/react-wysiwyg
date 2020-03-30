@@ -10,6 +10,7 @@ import Articles from "./articles";
 import Article from "./article";
 import Github from './github';
 import Footer from './footer';
+import './app.css';
 
 ReactGA.initialize('UA-162036742-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
@@ -17,18 +18,16 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 export default function App() {
   return (
     <Router>
-      <div>
+      <div className="main-container">
         <Navbar/>
-
         <Switch>
         <Route exact path='/' component={Articles}/>
         <Route exact path='/articles' component={Articles}/>
         <Route path='/articles/:number' component={Article}/>
         <Route path="/github" component={Github}/>
         </Switch>
-
-        <Footer/>
       </div>
+      <Footer/>
     </Router>
   );
 }
