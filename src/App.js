@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import ReactGA from 'react-ga';
+import { hotjar } from 'react-hotjar';
 import Navbar from "./navbar";
 import Articles from "./articles";
 import Article from "./article";
@@ -12,10 +13,16 @@ import Github from './github';
 import Footer from './footer';
 import './app.css';
 
-ReactGA.initialize('UA-162036742-1');
-ReactGA.pageview(window.location.pathname + window.location.search);
+class App extends React.Component {
 
-export default function App() {
+componentDidMount() {
+  ReactGA.initialize('UA-162036742-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+  hotjar.initialize(1755119, 6);
+
+}  
+
+render() {
   return (
     <Router>
       <div className="main-container">
@@ -31,3 +38,6 @@ export default function App() {
     </Router>
   );
 }
+  
+}
+export default App;
