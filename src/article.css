@@ -22,8 +22,8 @@ img {
 
 .article-wrapper > .container > .row {
   max-width: 800px;
-    margin: 0 auto;
-
+  margin: 0 auto;
+  overflow-x: scroll;
 }
 
 .article-title {

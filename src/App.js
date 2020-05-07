@@ -11,6 +11,7 @@ import Articles from "./articles";
 import Article from "./article";
 import Github from './github';
 import Footer from './footer';
+import './highlighter.css';
 import './app.css';
 
 class App extends React.Component {
