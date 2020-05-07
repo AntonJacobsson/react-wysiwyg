@@ -57,3 +57,11 @@
 .fixed-height-card {
     min-height: 71.74px;
 }
+.tags-box {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+.tags-box button {
+    margin: 0.10em;
+}
