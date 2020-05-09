@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import './github.css';
+import './css/github.css';
 class Github extends React.Component {
 
     constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import { Helmet } from 'react-helmet';
-import './articles.css';
+import './css/articles.css';
 import { Link } from "react-router-dom";
 
 const strapi = new Strapi('https://api.ajacobsson.com');

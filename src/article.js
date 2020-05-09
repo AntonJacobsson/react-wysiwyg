@@ -3,7 +3,7 @@ import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import { Markdown } from 'react-showdown';
 import { Helmet } from 'react-helmet';
-import './article.css';
+import './css/article.css';
 const strapi = new Strapi('https://api.ajacobsson.com');
 
 class Article extends React.Component {

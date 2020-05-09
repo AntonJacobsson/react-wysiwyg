@@ -6,13 +6,13 @@ import {
 } from "react-router-dom";
 import ReactGA from 'react-ga';
 import { hotjar } from 'react-hotjar';
-import Navbar from "./navbar";
+import Navbar from "./components/navbar";
 import Articles from "./articles";
 import Article from "./article";
 import Github from './github';
-import Footer from './footer';
-import './highlighter.css';
-import './app.css';
+import Footer from './components/footer';
+import './css/highlighter.css';
+import './css/app.css';
 
 class App extends React.Component {
 
