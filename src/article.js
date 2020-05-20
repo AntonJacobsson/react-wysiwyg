@@ -3,6 +3,7 @@ import React from 'react';
 import Strapi from 'strapi-sdk-javascript/build/main';
 import { Markdown } from 'react-showdown';
 import { Helmet } from 'react-helmet';
+import CommentForm from './comment-form';
 import './css/article.css';
 const strapi = new Strapi('https://api.ajacobsson.com');
 
@@ -17,7 +18,6 @@ class Article extends React.Component {
     }
   }
   async componentDidMount() {
-
     var article = await this.fetchPost();
 
     var createdIsoTime = article.created_at;
@@ -59,6 +59,7 @@ class Article extends React.Component {
   render() {
 
     if (this.state.article) {
+      const commentsCount = this.state.article.comments.length;
       return (
         <div>
           <Helmet>
@@ -75,8 +76,27 @@ class Article extends React.Component {
                   <p className="lead"> {this.state.article.user.username} </p>
                   <p className="lead"> {this.state.createdDate} </p>
                 </div>
-                <div className="row">
+                <div className="row article-content">
                   <Markdown markup={this.state.article.content} />
+                </div>
+                <div className="comment-section">
+
+                  {commentsCount > 0 ? <h3>Comments:</h3> : <h3></h3>}
+
+                  {this.state.article.comments.map(comment => {
+                    return (
+                      <div className="card" key={comment.id}>
+                        <div className="card-header">
+                          <span className="font-weight-bold">Anton Jacobsson</span> {comment.created_at}
+                        </div>
+                        <div className="card-body">
+                          <p>{comment.text}</p>
+                        </div>
+                      </div>
+
+                    )
+                  })}
+                    <CommentForm articleId={this.props.match.params.number}></CommentForm>
                 </div>
               </div>
             </div>

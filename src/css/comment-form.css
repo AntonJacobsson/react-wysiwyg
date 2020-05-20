@@ -1,0 +1,13 @@
+.submit-button {
+    background-color: #33b5e5;
+    color: white;
+  }
+.submitMessage {
+  margin-bottom: 5em;
+}
+.error {
+  color: red;
+}
+.comment-section > .comment-form-wrapper {
+  margin-bottom: 2em;
+}
