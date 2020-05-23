@@ -1,10 +1,8 @@
-/* eslint-disable no-useless-escape */
 import React from 'react';
 import './css/comment-form.css';
 import UserContext from './userContext';
 import $ from 'jquery';
 
-const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 const baseUrl = 'https://api.ajacobsson.com/comments';
 
 class CommentForm extends React.Component {
@@ -12,13 +10,9 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: null,
-      email: null,
       message: null,
       submitMessage: '',
       errors: {
-        fullName: '',
-        email: '',
         message: '',
       }
     };
@@ -30,18 +24,6 @@ class CommentForm extends React.Component {
     let errors = this.state.errors;
 
     switch (name) {
-      case 'fullName':
-        errors.fullName =
-          value.length < 5
-            ? 'Full Name must be at least be 5 characters'
-            : '';
-        break;
-      case 'email':
-        errors.email =
-          validEmailRegex.test(value)
-            ? ''
-            : 'Email is not valid';
-        break;
       case 'message':
         errors.message =
           value.length < 1
@@ -65,7 +47,7 @@ class CommentForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.email !== null && this.state.fullName !== null && this.state.message !== null) {
+    if (this.state.message !== null) {
       if (this.validateForm(this.state.errors)) {
         this.publishComment();
       }
@@ -83,8 +65,8 @@ class CommentForm extends React.Component {
     if(this.context !== null) {
       let data = {
         article: this.props.articleId,
-        email: this.state.email,
-        name: this.state.fullName,
+        email: this.context.user.email,
+        name: this.context.user.username,
         text: this.state.message
       }
 
@@ -111,6 +93,8 @@ class CommentForm extends React.Component {
   }
 
   render() {
+    const email = this.context !== null ? this.context.user.email : '';
+    const username = this.context !== null ? this.context.user.username : '';
     const { errors } = this.state;
     return (
       <div className="comment-form-wrapper">
@@ -130,15 +114,11 @@ class CommentForm extends React.Component {
             <form onSubmit={this.handleSubmit} noValidate>
               <div className='form-group'>
                 <label htmlFor="fullName">Full Name</label>
-                <input className="form-control" type='text' name='fullName' placeholder="Enter name" onChange={this.handleChange} noValidate />
-                {errors.fullName.length > 0 &&
-                  <span className='error'>{errors.fullName}</span>}
+                <input className="form-control" type='text' name='fullName' value={username} disabled noValidate />
               </div>
               <div className='form-group'>
                 <label htmlFor="email">Email</label>
-                <input className="form-control" type='email' name='email' placeholder="Enter email" onChange={this.handleChange} noValidate />
-                {errors.email.length > 0 &&
-                  <span className='error'>{errors.email}</span>}
+                <input className="form-control" type='email' name='email' value={email} disabled noValidate />
               </div>
               <div className='form-group'>
                 <textarea rows="3" className="form-control" type='text' name='message' placeholder="Comment" onChange={this.handleChange} noValidate />
