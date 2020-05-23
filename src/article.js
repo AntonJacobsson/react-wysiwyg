@@ -81,7 +81,7 @@ class Article extends React.Component {
                 </div>
                 <div className="comment-section">
 
-                  {commentsCount > 0 ? <h3>Comments:</h3> : <h3></h3>}
+                  {commentsCount > 0 ? <h3>Comments:</h3> : <p></p>}
 
                   {this.state.article.comments.map(comment => {
                     return (

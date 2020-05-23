@@ -46,7 +46,7 @@
       color: grey;
   }
 .custom-button-badge {
-    border-radius: 10rem;
+    border-radius: 10rem!important;
     font-size: 0.75rem;
     margin-right: 0.25rem;
 }

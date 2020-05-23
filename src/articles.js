@@ -108,7 +108,7 @@ class Articles extends React.Component {
                 <div className="tags-box">
                   {this.state.tags.map(tag => {
                     return (
-                      <button key={tag.name} style={{ fontSize: this.calculateFontSize(tag.weight) }} type="button" className="btn" onClick={() => this.addFilterOnClick(tag.name)}>{tag.name}</button>
+                      <button key={tag.name} style={{ fontSize: this.calculateFontSize(tag.weight) }} type="button" className="btn btn-light" onClick={() => this.addFilterOnClick(tag.name)}>{tag.name}</button>
                     )
                   })}
                 </div>

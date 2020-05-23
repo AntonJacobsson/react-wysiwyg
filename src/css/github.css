@@ -1,6 +1,6 @@
 .card-deck .card {
-    flex: 1 0 30%;
-    margin-bottom: 2rem;
+    flex: 1 0 30%!important;
+    margin-bottom: 2rem!important;
 }
 .card-badge-row {
     padding-right: 1.25rem;

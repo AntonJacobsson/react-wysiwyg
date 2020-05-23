@@ -26,7 +26,6 @@ class Github extends React.Component {
             return await response.json();
         }
         catch {
-            alert("could not load repositories");
         }
     }
 

@@ -46,14 +46,37 @@ body {
   }
   
   .custom-navbar-primary ul li a {
-    color: white;
+    color: #f8f9fa;
     font-size: 1.25rem;
   }
   .nav-item:hover .nav-link {
-    color: #eee;
+    color: #f8f9fa;
   }
   
   .is-active {
     border-bottom: 2px solid white;
     padding-bottom: 6px;
+  }
+
+  .navbar-login {
+    color: #f8f9fa;
+    margin: 0;
+    display: block;
+  }
+
+  .navbar-user-info {
+    background-color: #33b5e5;
+    position: absolute;
+    right: 0;
+    padding: 0.35em;
+    border-radius: 0 0 0 0.75em;
+    color: #f8f9fa;
+  }
+  .modal-footer-register {
+    position: absolute;
+    left: 0;
+    padding-left: 1em;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-bottom: 0.5em;
   }

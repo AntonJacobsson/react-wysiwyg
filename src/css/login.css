@@ -1,0 +1,10 @@
+.custom-btn-primary {
+    background-color: #33b5e5!important;
+    color: #f8f9fa!important;
+}
+.errorMsg {
+    color: red;
+}
+.successMsg {
+    color: lawngreen;
+}
